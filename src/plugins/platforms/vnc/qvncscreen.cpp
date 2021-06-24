@@ -81,6 +81,7 @@ bool QVncScreen::initialize()
             mPhysicalSize = QSizeF(match.captured("width").toDouble(), match.captured("height").toDouble());
         } else if (arg.contains(sizeRx, &match)) {
             mGeometry.setSize(QSize(match.captured(1).toInt(), match.captured(2).toInt()));
+            mPhysicalSize = QSizeF(mGeometry.width()/96.*25.4, mGeometry.height()/96.*25.4);
         } else if (arg.contains(depthRx, &match)) {
             mDepth = match.captured(1).toInt();
         }

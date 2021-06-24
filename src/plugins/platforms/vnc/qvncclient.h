@@ -69,7 +69,7 @@ public:
     QVncServer *server() const { return m_server; }
 
     void setDirty(const QRegion &region);
-    void setDirtyCursor() { m_dirtyCursor = true; scheduleUpdate(); }
+    void setDirtyCursor() { if( m_state != Connected ) return; m_dirtyCursor = true; scheduleUpdate(); }
     QRegion dirtyRegion() const { return m_dirtyRegion; }
     inline bool isConnected() const { return m_state == Connected; }
 
