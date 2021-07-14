@@ -2230,9 +2230,9 @@ void QWidgetTextControlPrivate::editFocusEvent(QEvent *e)
             selectionChanged();
             repaintOldAndNewSelection(oldSelection);
 
-            setBlinkingCursorEnabled(true);
+            setCursorVisible(true);
         } else
-            setBlinkingCursorEnabled(false);
+            setCursorVisible(false);
     }
 
     hasEditFocus = e->type() == QEvent::EnterEditFocus;

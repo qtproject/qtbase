@@ -1485,10 +1485,10 @@ bool QLineEdit::event(QEvent * e)
         if (e->type() == QEvent::EnterEditFocus) {
             end(false);
             d->setCursorVisible(true);
-            d->control->setCursorBlinkEnabled(true);
+            d->control->setBlinkingCursorEnabled(true);
         } else if (e->type() == QEvent::LeaveEditFocus) {
             d->setCursorVisible(false);
-            d->control->setCursorBlinkEnabled(false);
+            d->control->setBlinkingCursorEnabled(false);
             if (d->control->hasAcceptableInput() || d->control->fixup())
                 emit editingFinished();
         }
